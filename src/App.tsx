@@ -64,6 +64,7 @@ c = int(input())
 print(a + b + c)`);
       }
     }
+    setTestCases([{ input: "1\n2\n3", expectedOutput: "6" }]);
   }, [language, setCode, init]);
 
   useEffect(() => {
