@@ -143,7 +143,7 @@ function App() {
     setLoading(true);
     try {
       // post language, code, testcases to a api
-      const response = await fetch("http://localhost:6789/api/share", {
+      const response = await fetch("https://api.code.eurl.dev/api/share", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -183,7 +183,7 @@ function App() {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:6789/api/share/${shareTaskId}`
+          `https://api.code.eurl.dev/api/share/${shareTaskId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch shared results");
