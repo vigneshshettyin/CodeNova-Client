@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
 import type * as monaco from "monaco-editor";
 import {
@@ -29,11 +29,6 @@ export function CodeEditor({
   setTheme,
 }: CodeEditorProps) {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
-
-  useEffect(() => {
-    setLanguage(language);
-    setCode(code);
-  }, [code, language, setCode, setLanguage]);
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
