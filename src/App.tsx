@@ -76,7 +76,6 @@ function App() {
           toast({
             title: "Success!",
             description: "All test cases passed!",
-            variant: "default",
           });
         }
       } catch (error) {
@@ -84,7 +83,6 @@ function App() {
           title: "Error",
           description:
             error instanceof Error ? error.message : "Failed to fetch results",
-          variant: "destructive",
         });
         setLoading(false);
         setTaskId(null);
@@ -105,7 +103,6 @@ function App() {
         title: "Incomplete Test Cases",
         description:
           "Please fill in all test cases with input and expected output.",
-        variant: "destructive",
       });
       return;
     }
@@ -137,7 +134,6 @@ function App() {
         title: "Submission Error",
         description:
           error instanceof Error ? error.message : "Failed to submit code",
-        variant: "destructive",
       });
       setLoading(false);
     }
@@ -169,14 +165,12 @@ function App() {
       toast({
         title: "Results Shared",
         description: "Link copied to clipboard!",
-        variant: "default",
       });
     } catch (error) {
       toast({
         title: "Error",
         description:
           error instanceof Error ? error.message : "Failed to share results",
-        variant: "destructive",
       });
       setLoading(false);
     }
@@ -207,7 +201,6 @@ function App() {
             error instanceof Error
               ? error.message
               : "Failed to fetch shared results",
-          variant: "destructive",
         });
       } finally {
         setLoading(false);
