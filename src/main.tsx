@@ -4,7 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import App from "./App.tsx";
 import "./index.css";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner"
+
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
