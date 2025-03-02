@@ -14,7 +14,7 @@ import { useParams } from "react-router-dom";
 
 function App() {
   const { shareTaskId } = useParams();
-  const [code, setCode] = useState<string>("// Write your code here");
+  const [code, setCode] = useState<string>("");
   const [language, setLanguage] = useState<string>("javascript");
   const [theme, setTheme] = useState<string>("vs-dark");
   const [testCases, setTestCases] = useState<
