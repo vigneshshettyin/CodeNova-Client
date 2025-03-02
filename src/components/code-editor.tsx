@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
 import type * as monaco from "monaco-editor";
 import {
@@ -78,27 +78,6 @@ export function CodeEditor({
       },
     });
   };
-
-  useEffect(() => {
-    if (!code){
-      if (language === "javascript") {
-        setCode(`// JavaScript solution
-  const fs = require("fs");
-  
-  const input = fs.readFileSync(0, "utf-8").trim().split("\\n");
-  const a = parseInt(input[0]);
-  const b = parseInt(input[1]);
-  const c = parseInt(input[2]);
-  console.log(a + b + c);`);
-      } else if (language === "python") {
-        setCode(`# Python solution
-  a = int(input())
-  b = int(input())
-  c = int(input())
-  print(a + b + c)`);
-      }
-    }
-  }, [language, setCode, code]);
 
   return (
     <Card className="h-full flex flex-col w-full">

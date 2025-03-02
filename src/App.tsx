@@ -33,6 +33,7 @@ function App() {
   const [taskId, setTaskId] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+  const [init, setInit] = useState<boolean>(true);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -43,6 +44,27 @@ function App() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (init) {
+      if (language === "javascript") {
+        setCode(`// JavaScript solution
+const fs = require("fs");
+
+const input = fs.readFileSync(0, "utf-8").trim().split("\\n");
+const a = parseInt(input[0]);
+const b = parseInt(input[1]);
+const c = parseInt(input[2]);
+console.log(a + b + c);`);
+      } else if (language === "python") {
+        setCode(`# Python solution
+a = int(input())
+b = int(input())
+c = int(input())
+print(a + b + c)`);
+      }
+    }
+  }, [language, setCode, init]);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -190,6 +212,7 @@ function App() {
         }
 
         const data = await response.json();
+        setInit(false);
         setLanguage(data.language);
         setCode(data.code);
         setTestCases(data.testCases);
