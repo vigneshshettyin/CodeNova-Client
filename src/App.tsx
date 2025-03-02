@@ -190,8 +190,8 @@ function App() {
         }
 
         const data = await response.json();
-        setCode(data.code);
         setLanguage(data.language);
+        setCode(data.code);
         setTestCases(data.testCases);
         setResults([]);
       } catch (error) {
@@ -220,7 +220,7 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="codenova-theme">
-      <div className="min-h-screen flex flex-col w-[80vw] md:w-[100vw]">
+      <div className="flex flex-col w-[80vw] md:w-[100vw] overflow-y-scroll">
         <header className="border-b">
           <div className="container mx-auto px-4 py-3 flex justify-between items-center">
             <div className="flex items-center gap-2">
